@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+    - docker
+before_install:
+    - docker build -t seand52/invoices-client -f ./client/Dockerfile.dev ./client
+    - docker build -t seand52/invoices-api -f ./api/Dockerfile.dev ./api
+script:
+    - docker run -e CI=true seand52/invoices-client yarn test
+    - docker run -e CI=true seand52/invoices-api yarn test

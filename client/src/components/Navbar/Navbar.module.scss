@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  list-style: none;
+  padding: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+
+  & li {
+    cursor: pointer;
+  }
+  & li > a {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+  }
+
+  & li:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 3rem;
+  }
+
+  .icon_underlined {
+    border-bottom: 1px solid white;
+  }
+}

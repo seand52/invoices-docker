@@ -1,0 +1,20 @@
+@import '../../../styles/variables';
+
+.form_wrapper {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 4rem;
+}
+
+.submit_button {
+  margin-top: 10px;
+}
+
+.register_link {
+  text-align: left;
+  text-decoration: none;
+  color: blue;
+  margin-top: 6px;
+}

@@ -1,0 +1,65 @@
+@import '../../../styles/variables';
+.top_area {
+  min-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  & button {
+    margin-right: 50px;
+    width: 150px;
+  }
+  & h1 {
+    margin-left: 50px;
+  }
+}
+
+.form_settings {
+  min-height: 100px;
+  margin: 20px 0;
+  // background-color: aliceblue;
+  border: 1px solid #ccc;
+  display: grid;
+  grid-template-columns: 20% 20% 20%;
+  grid-column-gap: 15%;
+  grid-row-gap: 20px;
+  padding: 30px;
+}
+
+.form_products {
+  flex: 1;
+  overflow: scroll;
+  max-height: 750px;
+}
+
+.form_products::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.form_products::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.quantity {
+  width: 100px;
+}
+
+.add_icon {
+  color: green;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.delete_icon {
+  color: red;
+  cursor: pointer;
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+.btn {
+  margin-top: 20px !important;
+  width: 20%;
+  background-color: $primary-button !important;
+  color: white !important;
+}

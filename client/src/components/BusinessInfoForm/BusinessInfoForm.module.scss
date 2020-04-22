@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.form_wrapper {
+  border: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.submit_button {
+  margin-top: 10px;
+}
+
+.skip_link {
+  text-align: left;
+  text-decoration: none;
+  color: blue;
+  margin-top: 6px;
+}
+.form_items {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 15px;
+}
+
+.btn_container {
+  width: 20%;
+  margin: 0 auto;
+}

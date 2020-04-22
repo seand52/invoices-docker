@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "react-app",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+    "prettier/babel",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-debugger": "warn",
+    "jsx-quotes": ["error", "prefer-single"]
+  }
+}

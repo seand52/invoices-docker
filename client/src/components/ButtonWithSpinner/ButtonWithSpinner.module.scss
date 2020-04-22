@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+
+.root {
+  display: 'flex';
+  align-items: 'center';
+}
+
+.wrapper {
+  margin: 1px;
+  position: 'relative';
+}
+
+.button {
+  margin-top: 20px !important;
+  width: 100%;
+  background-color: $primary-button !important;
+  color: white !important;
+}
+
+.buttonSuccess {
+  margin-top: 20px !important;
+  width: 100%;
+  background-color: $button_success !important;
+  color: white !important;
+  &:hover {
+    background-color: $button_success !important;
+  }
+}

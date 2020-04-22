@@ -1,0 +1,33 @@
+.form_wrapper {
+  & .form_items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+    grid-row-gap: 10px;
+  }
+  & button {
+    width: 50%;
+  }
+
+  .input_wrapper {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    & .select {
+      width: 90px;
+    }
+  }
+
+  .documentNumber {
+    height: 56px;
+  }
+  & .MuiFormControl-marginNormal {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  & .MuiFormControl-root {
+    justify-self: center !important;
+  }
+}

@@ -1,0 +1,59 @@
+@import '../../styles/variables';
+
+.app_layout {
+  display: grid;
+  grid-template-areas:
+    'navbar navbar navbar'
+    'sidebar content content';
+  grid-template-columns: 120px 1fr 1fr;
+  grid-template-columns: 1fr 4fr 4fr;
+  grid-template-rows: 100px auto;
+  height: 100vh;
+}
+
+.navbar {
+  grid-area: navbar;
+  background-color: $navbar;
+  color: white;
+}
+
+.sidebar_left {
+  grid-area: sidebar;
+  border-right: 1px solid $border;
+  background-color: $sidebar;
+  color: white;
+  .list_item {
+    font-size: 2rem;
+    // background-color: red;
+  }
+}
+
+.sidebar_right {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid $border;
+  grid-area: content;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  .app_layout {
+    grid-template-areas:
+      'navbar'
+      'sidebar'
+      'content'
+      'content';
+
+    grid-template-columns: 1fr;
+    grid-template-rows:
+      100px /* Header */
+      minmax(75px, auto) /* Nav */
+      1fr /* Content */
+      1fr;
+  }
+
+  nav,
+  aside {
+    margin: 0;
+  }
+}

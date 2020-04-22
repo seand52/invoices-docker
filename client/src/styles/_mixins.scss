@@ -1,0 +1,11 @@
+@mixin mobile-or-less {
+  @media only screen and (max-width: 767px) { @content;} 
+}
+
+@mixin between-tablet-and-mobile {
+  @media only screen and (max-width:1279px) and (min-width:768px) { @content;} 
+}
+
+@mixin desktop-or-more {
+  @media only screen and (min-width: 1280px) { @content;} 
+}
