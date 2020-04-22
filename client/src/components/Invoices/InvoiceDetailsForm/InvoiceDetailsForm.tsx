@@ -283,7 +283,6 @@ export default function InvoiceDetailsForm({
                       variant='outlined'
                     />
                   </TableCell>
-                  {console.log(row.price)}
                   <TableCell align='left'>
                     <TextField
                       defaultValue={
