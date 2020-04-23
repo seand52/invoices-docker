@@ -8,3 +8,13 @@ before_install:
 script:
     - docker run -e CI=true seand52/invoices-client yarn test
     - docker run -e CI=true seand52/invoices-api yarn test
+after_success:
+    - docker build -t seand52/invoices-client ./client
+    - docker build -t seand52/invoices-api ./api
+    - docker build -t seand52/invoices-nginx ./nginx
+
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+    - docker push seand52/invoices-client
+    - docker push seand52/invoices-api
+    - docker push seand52/invoices-nginx
