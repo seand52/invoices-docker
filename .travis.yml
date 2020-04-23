@@ -22,9 +22,9 @@ deploy:
     provider: elasticbeanstalk
     region: eu-west-1
     app: invoices
-    env: Invoices-env
+    env: Invoices-env-1
     bucket_name: elasticbeanstalk-eu-west-1-294472240262
-    bucket_path: invoices
+    bucket_path: invoices-1
     on:
         branch: master
     access_key_id: $AWS_ACCESS_KEY
