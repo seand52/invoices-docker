@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from 'selectors/userSelectors';
 
 const clientWithBaseUrl = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: 'api',
 });
 
 const clientWithoutBaseUrl = axios.create({

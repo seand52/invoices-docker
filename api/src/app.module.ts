@@ -15,6 +15,9 @@ import { UsersModule } from './users/users.module';
   imports: [
     UsersModule,
     TypeOrmModule.forRootAsync({
+      //@ts-ignore
+      retryAttempts: 5,
+      retryDelay: 3000,
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService): Promise<any> => ({
         type: 'mysql',

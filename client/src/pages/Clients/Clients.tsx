@@ -1,24 +1,25 @@
-import React, { useEffect, useReducer } from 'react';
-import { connect } from 'react-redux';
+import { navigate } from '@reach/router';
 import Layout from 'components/Layout/Layout';
-import {
-  searchAll,
-  deleteClient,
-  resetSuccess,
-  resetError,
-} from 'store/actions/clientActions';
-import { InitialState } from 'store';
-import { getClientsState } from 'selectors/clients';
-import { ClientState } from 'store/reducers/clientsReducer';
 import Overview from 'components/Overview/Overview';
 import SimpleModal from 'components/SimpleModal/SimpleModal';
-import ClientDetailsForm from '../../components/Clients/ClientDetailsForm/ClientDetailsForm';
+import { useSetNavigation } from 'hooks/useSetNavigation';
+import React, { useEffect, useReducer } from 'react';
+import { connect } from 'react-redux';
+import { getClientsState } from 'selectors/clients';
+import { InitialState } from 'store';
+import {
+  deleteClient,
+  resetError,
+  resetSuccess,
+  searchAll,
+} from 'store/actions/clientActions';
+import { makeInvoiceClient } from 'store/actions/invoiceFormActions';
+import { ClientState } from 'store/reducers/clientsReducer';
 import Swal from 'sweetalert2';
 import { alertProp, confirmationAlert } from 'utils/swal';
+
+import ClientDetailsForm from '../../components/Clients/ClientDetailsForm/ClientDetailsForm';
 import { initialState, reducer } from './localReducer';
-import { makeInvoiceClient } from 'store/actions/invoiceFormActions';
-import { navigate } from '@reach/router';
-import { useSetNavigation } from 'hooks/useSetNavigation';
 
 interface Props {
   path: string;

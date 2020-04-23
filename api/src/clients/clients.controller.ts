@@ -43,7 +43,7 @@ export class ClientsController {
         page,
         limit,
         name,
-        route: `${this.configService.get('API_URL')}/clients`,
+        route: `/clients`,
       },
       userId,
     );
