@@ -21,10 +21,10 @@ after_success:
 deploy:
     provider: elasticbeanstalk
     region: eu-west-1
-    app: invoices-app
-    env: InvoicesApp-env
+    app: invoices
+    env: Invoices-env
     bucket_name: elasticbeanstalk-eu-west-1-294472240262
-    bucket_path: invoices-app
+    bucket_path: invoices
     on:
         branch: master
     access_key_id: $AWS_ACCESS_KEY

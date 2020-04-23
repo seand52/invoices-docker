@@ -6,14 +6,14 @@
             "image": "seand52/invoices-client",
             "hostname": "client",
             "essential": false,
-            "memory": 128 
+            "memory": 512 
         },
         {
             "name": "api",
             "image": "seand52/invoices-api",
             "hostname": "api",
             "essential": false,
-            "memory": 128 
+            "memory": 512 
         },
         {
             "name": "nginx",
@@ -26,7 +26,7 @@
                 }
             ],
             "links": ["client", "api"],
-            "memory": 128 
+            "memory": 512 
         }
     ]
 }
