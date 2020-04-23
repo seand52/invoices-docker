@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class addDocumentType1580061933113 implements MigrationInterface {
+export class AddDocumentType1587582634168 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.query(
       `alter table clients add column documentType ENUM ("CIF", "NIF", "INTRA", "") DEFAULT ""`,

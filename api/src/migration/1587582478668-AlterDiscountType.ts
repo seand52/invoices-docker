@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class AlterDiscountType1577529411849 implements MigrationInterface {
+export class AlterDiscountType1587582478668 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.query(
       `ALTER TABLE invoice_to_products CHANGE discount discount decimal(10,4) NOT NULL DEFAULT 0`,

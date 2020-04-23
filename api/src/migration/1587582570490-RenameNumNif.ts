@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class renameNumNif1580037663084 implements MigrationInterface {
+export class RenameNumNif1587582570490 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.query(
       `ALTER TABLE clients CHANGE numNif documentNum VARCHAR(100) NOT NULL DEFAULT ""`,
