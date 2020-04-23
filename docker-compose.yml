@@ -11,6 +11,7 @@ services:
             - /app/node_modules
             - ./client:/app
     api:
+        restart: always
         container_name: 'invoices-api'
         build:
             context: ./api

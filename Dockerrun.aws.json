@@ -1,0 +1,32 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "seand52/invoices-client",
+            "hostname": "client",
+            "essential": false,
+            "memory": 128 
+        },
+        {
+            "name": "api",
+            "image": "seand52/invoices-api",
+            "hostname": "api",
+            "essential": false,
+            "memory": 128 
+        },
+        {
+            "name": "nginx",
+            "image": "seand52/invoices-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "api"],
+            "memory": 128 
+        }
+    ]
+}

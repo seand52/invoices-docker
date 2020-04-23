@@ -18,3 +18,14 @@ after_success:
     - docker push seand52/invoices-client
     - docker push seand52/invoices-api
     - docker push seand52/invoices-nginx
+deploy:
+    provider: elasticbeanstalk
+    region: eu-west-1
+    app: invoices-app
+    env: InvoicesApp-env
+    bucket_name: elasticbeanstalk-eu-west-1-294472240262
+    bucket_path: invoices-app
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
