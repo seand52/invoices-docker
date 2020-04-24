@@ -5,7 +5,8 @@ import { UserPayload } from '../users/users.dto';
 import { UserRespository } from '../users/users.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ConfigService } from '../config/config.service';
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 @Injectable()
 export class AuthService {
   constructor(
@@ -13,7 +14,7 @@ export class AuthService {
     @InjectRepository(UserRespository)
     private userRepository: UserRespository,
     private configService: ConfigService,
-  ) {}
+  ) { }
 
   async validateUser(username: string, password: string): Promise<any> {
     const user = await this.userRepository.findOne({ username });
@@ -35,7 +36,7 @@ export class AuthService {
     };
 
     const jwtService = new JwtService({
-      secret: this.configService.get('JWT_SECRET'),
+      secret: process.env.JWT_SECRET,
     });
     return {
       access_token: jwtService.sign(payload),

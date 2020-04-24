@@ -20,14 +20,15 @@ import { AuthGuard } from '@nestjs/passport';
 import { Products } from './products.entity';
 import { Pagination } from 'nestjs-typeorm-paginate';
 import { ConfigService } from '../config/config.service';
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 @Controller('products')
 @UseGuards(AuthGuard('jwt'))
 export class ProductsController {
   constructor(
     private productsService: ProductsService,
     private configService: ConfigService,
-  ) {}
+  ) { }
 
   @Get()
   async getProducts(
@@ -43,7 +44,7 @@ export class ProductsController {
         page,
         limit,
         name,
-        route: `${this.configService.get('API_URL')}/products`,
+        route: `${process.env.API_URL}/products`,
       },
       userId,
     );

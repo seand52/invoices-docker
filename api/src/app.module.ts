@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import * as dotenv from 'dotenv';
 
 import { AuthModule } from './auth/auth.module';
 import { BusinessInfoModule } from './business-info/business-info.module';
@@ -11,6 +12,7 @@ import { ProductsModule } from './products/products.module';
 import { SalesOrdersModule } from './sales-orders/sales-orders.module';
 import { UsersModule } from './users/users.module';
 
+dotenv.config();
 @Module({
   imports: [
     UsersModule,
@@ -21,11 +23,11 @@ import { UsersModule } from './users/users.module';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService): Promise<any> => ({
         type: 'mysql',
-        host: configService.get('MYSQL_HOST'),
-        port: configService.get('MYSQL_PORT'),
-        username: configService.get('MYSQL_USER'),
-        password: configService.get('MYSQL_PASSWORD'),
-        database: configService.get('MYSQL_DATABASE'),
+        host: process.env.MYSQL_HOST,
+        port: process.env.MYSQL_PORT,
+        username: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: false,
         migrations: [__dirname + '/migration/*.ts'],

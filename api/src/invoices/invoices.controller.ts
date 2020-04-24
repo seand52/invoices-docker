@@ -22,6 +22,8 @@ import { CreateInvoiceDto } from './dto/create-invoice.dto';
 import { FullInvoiceDetails } from './dto/output.dto';
 import { InvoicesService } from './invoices.service';
 import { ConfigService } from '../config/config.service';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Controller('invoices')
 @UseGuards(AuthGuard('jwt'))
@@ -30,7 +32,7 @@ export class InvoicesController {
   constructor(
     private invoicesService: InvoicesService,
     private configService: ConfigService,
-  ) {}
+  ) { }
 
   @Get()
   async getInvoices(
@@ -46,7 +48,7 @@ export class InvoicesController {
         page,
         limit,
         clientName,
-        route: `${this.configService.get('API_URL')}/invoices`,
+        route: `${process.env.API_URL}/invoices`,
       },
       userId,
     );

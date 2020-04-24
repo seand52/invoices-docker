@@ -1,15 +1,19 @@
 import { Module } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { UsersModule } from '../users/users.module';
-import { UsersService } from '../users/users.service';
-import { PassportModule } from '@nestjs/passport';
-import { LocalStrategy } from './local.strategy';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from '../auth/jwt.strategy';
+import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserRespository } from '../users/users.repository';
+import * as dotenv from 'dotenv';
+
+import { JwtStrategy } from '../auth/jwt.strategy';
 import { ConfigModule } from '../config/config.module';
 import { ConfigService } from '../config/config.service';
+import { UsersModule } from '../users/users.module';
+import { UserRespository } from '../users/users.repository';
+import { UsersService } from '../users/users.service';
+import { AuthService } from './auth.service';
+import { LocalStrategy } from './local.strategy';
+
+dotenv.config();
 
 @Module({
   imports: [
@@ -20,7 +24,7 @@ import { ConfigService } from '../config/config.service';
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService): Promise<any> => ({
-        secret: configService.get('JWT_SECRET '),
+        secret: process.env.JWT_SECRET,
         signOptions: { expiresIn: '2h' },
       }),
       inject: [ConfigService],
@@ -29,4 +33,4 @@ import { ConfigService } from '../config/config.service';
   providers: [AuthService, LocalStrategy, UsersService, JwtStrategy],
   exports: [AuthService],
 })
-export class AuthModule {}
+export class AuthModule { }

@@ -24,6 +24,8 @@ import { FullSalesOrdersDetails } from './dto/output.dto';
 import { CreateSalesOrderDto } from './dto/create-sales-order.dto';
 import { InvoicesService } from '../invoices/invoices.service';
 import { ConfigService } from '../config/config.service';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Controller('sales-orders')
 @UseGuards(AuthGuard('jwt'))
@@ -33,7 +35,7 @@ export class SalesOrdersController {
     private salesOrdersService: SalesOrdersService,
     private invoiceService: InvoicesService,
     private configService: ConfigService,
-  ) {}
+  ) { }
 
   @Get()
   async getSalesOrders(
@@ -49,7 +51,7 @@ export class SalesOrdersController {
         page,
         limit,
         clientName,
-        route: `${this.configService.get('API_URL')}/sales-orders`,
+        route: `${process.env.API_URL}/sales-orders`,
       },
       userId,
     );

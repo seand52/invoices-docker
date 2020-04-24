@@ -36,3 +36,4 @@ test.env
 development.env
 production.env
 ormconfig.json
+.env
