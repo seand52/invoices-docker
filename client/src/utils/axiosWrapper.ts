@@ -2,11 +2,11 @@ import axios from 'axios';
 import { getToken } from 'selectors/userSelectors';
 
 const clientWithBaseUrl = axios.create({
-  baseURL: 'api',
+  baseURL: '/api',
 });
 
 const clientWithoutBaseUrl = axios.create({
-  baseURL: '',
+  baseURL: '/',
 });
 
 interface Options<T> {
